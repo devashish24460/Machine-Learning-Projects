@@ -1,0 +1,33 @@
+ This code performs spam classification using a machine learning model. Here's a step-by-step explanation:
+
+1. The necessary libraries are imported: `tensorflow` for creating and training the model, `numpy` for numerical operations, `pandas` for data handling, `matplotlib` for plotting, and `train_test_split` from `sklearn` for splitting the data into training and testing sets.
+
+2. The dataset is loaded from a CSV file named "SPAM text.csv" using `pd.read_csv()`. The dataset contains email messages labeled as either "ham" (not spam) or "spam".
+
+3. The distribution of ham and spam messages in the dataset is visualized using a count plot.
+
+4. The dataset is balanced by downsampling the majority class (ham) to match the number of samples in the minority class (spam).
+
+5. The balanced dataset is visualized to show the new distribution of ham and spam messages.
+
+6. The "Category" column is mapped to numerical labels, where "ham" is assigned 0 and "spam" is assigned 1.
+
+7. The dataset is split into training and testing sets using `train_test_split()`. 80% of the data is used for training, and 20% is used for testing.
+
+8. Text preprocessing is performed to tokenize and pad the email messages. The `Tokenizer` class from Keras is used to convert the text into sequences of numbers and create a vocabulary. The `pad_sequences` function is used to ensure all sequences have the same length by padding or truncating them.
+
+9. The model architecture is defined using a sequential model from Keras. It consists of an embedding layer, a global average pooling layer, a dense layer with ReLU activation, a dropout layer for regularization, and a final dense layer with a sigmoid activation for binary classification.
+
+10. The model is compiled with a binary cross-entropy loss function, accuracy metric, and Adam optimizer.
+
+11. The model is trained on the training data using `model.fit()`. Early stopping is implemented to stop training if the validation loss doesn't improve for 3 consecutive epochs.
+
+12. The trained model is evaluated on the testing data using `model.evaluate()`.
+
+13. The accuracy and validation accuracy values are plotted over the training epochs.
+
+14. The `predict_spam()` function is defined to predict whether a given message is spam or not. It tokenizes and pads the input message, and then uses the trained model to predict the spam probability.
+
+15. The `predict_spam()` function is called with three example messages to demonstrate the spam prediction.
+
+That's a high-level overview of the code. It reads the dataset, balances it, preprocesses the text, builds and trains a model, and makes predictions on new messages.

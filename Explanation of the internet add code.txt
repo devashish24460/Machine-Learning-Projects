@@ -1,0 +1,37 @@
+The code imports necessary libraries such as NumPy for numerical computations, pandas for data processing, scikit-learn for train-test splitting, and matplotlib for visualization.
+
+The CSV file containing the data is loaded using pandas into the data_original DataFrame.
+
+The relevant columns ('0', '1', '2', '1558') are selected from the original data and stored in the data_select DataFrame.
+
+Missing values in the selected columns are removed using the notna() function.
+
+Data type conversion is performed for numeric columns ('0', '1', '2') using pd.to_numeric().
+
+The target variable column ('1558') is converted to binary labels by assigning 'ad.' as 1 and other values as 0.
+
+Any remaining rows with missing values are dropped.
+
+The column names of data_select are updated for clarity.
+
+The data is shuffled randomly using shuffle().
+
+The data is split into a training set and a test set using train_test_split().
+
+The feature matrices (X_train, X_test) and the target vectors (Y_train, Y_test) are extracted from the data.
+
+The feature matrices are transposed to match the expected shapes for computations.
+
+The sigmoid function is defined, which computes the sigmoid activation of a given input.
+
+The initialise_with_zeros() function initializes the weight vector w and the bias b with zeros.
+
+The propagate() function performs forward and backward propagation to compute the cost and gradients.
+
+The optimise() function updates the parameters (w and b) using gradient descent and returns the updated parameters, gradients, and costs over iterations.
+
+The predict() function computes predictions based on the learned parameters w and b.
+
+The model() function integrates all the helper functions to build the logistic regression model. It initializes parameters, optimizes them using gradient descent, makes predictions, and prints the accuracy on the training and test sets.
+
+The model is trained and tested using the provided datasets, and the cost over iterations is plotted using matplotlib.
